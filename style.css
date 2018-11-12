@@ -1,5 +1,14 @@
 @charset: utf-8;
 
+* {
+    padding: 1px;
+    margin: 3px 3px 3px 3px;
+}
+
+body {
+    /*    background: rgba(0, 0, 0, .6)*/
+}
+
 .img_tooltip {
     max-height: 180px;
     max-width: 180px;
@@ -9,7 +18,7 @@
 
 #rhythmic_gymnastic {
     position: absolute;
-    display: none;
+    display: inline-block;
 }
 
 #figure_skating {
@@ -20,4 +29,41 @@
 #sport_gymnastic {
     position: absolute;
     display: none;
+}
+
+select {
+    border-radius: 12px;
+    width: auto;
+    /*    max-width: inherit;*/
+    text-align: center;
+    border: none;
+}
+
+textarea {
+    width: auto;
+}
+
+button {
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+}
+
+input {
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+}
+
+#main_content {
+    min-width: 375px;
+    max-width: 500px;
+    margin: auto;
+    top: 0;
+    background: #d9b597;
+    color: white;
+}
+
+#divh1 {
+    background: rgba(15, 15, 15, .6);
 }
