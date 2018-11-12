@@ -35,17 +35,12 @@
                 }
                 e.target.addEventListener('mouseout', delete_div,false);
             }
-            
-//           var type_clothes = document.getElementById('type_clothes');
-// var list_rhythmic_gymnastic = ["Купальник","Комбинезон","Другое"];
-// var list_sport_gymnastic = ["Купальник","Лосины","Другое"];
-// var list_figure_skating = ["Платье","Комбинезон","Рубашка","Брюки","Другое"];
-            }
-            function update_list(){
-var type_sport = document.getElementById('type_sport');
-                if (type_sport.options.selectedIndex == 0){
-                    document.getElementById('rhythmic_gymnastic').style.display = 'inline-block';
-                    document.getElementById('sport_gymnastic').style.display = 'none';
+        }
+        function update_list(){
+            var type_sport = document.getElementById('type_sport');
+            if (type_sport.options.selectedIndex == 0){
+                document.getElementById('rhythmic_gymnastic').style.display = 'inline-block';
+                document.getElementById('sport_gymnastic').style.display = 'none';
                     document.getElementById('figure_skating').style.display = 'none';
                 } else if (type_sport.options.selectedIndex == 1){
                     document.getElementById('rhythmic_gymnastic').style.display = 'none';
@@ -59,68 +54,80 @@ var type_sport = document.getElementById('type_sport');
                     alert('pls, refresh page')
                 }
         }
+        function search_bad_form(){
+            var list_required = document.querySelectorAll('[required]');
+            var length_req = list_required.length;
+            while (length_req--){
+                if list_required[length_req] == '' || list_required == ' '{
+                    list_required[length_req].style.background='rgba(255,0,0,.5)';
+                }
+            }
+        }
     </script>
 </head>
 
 <body>
-    <form action="#" method="get" name="input_data">
-        <h1>Заказ</h1>
-        Выберете вид спорта: <br>
-        <select name="type_sport" id="type_sport" size="1" onclick="update_list()">
-            <option value="Художественная_гимнастика">Художественная гимнастика</option>
-            <option value="Спортивная_гимнастика">Спортивная гимнастика</option>
-            <option value="Фигурное_катание">Фигурное катание</option>
-        </select><br>
-        Вид заказа:
-        <label><input type="radio" name="type_order" value="Индивидуальный" checked>Индивидуальный</label>
-        <label><input type="radio" name="type_order" value="Групповой">Групповой</label><br>
-        Укажите количество человек в группе:
-        <input type="number" max="200" min="1" required><br>
-        <!--group list-->
-        Выберете изделие:
-        <!--
-        <select name="type_clothes" id="type_clothes">
 
-        </select><br>
--->
-        <select name="Художественная_гимнастика" id="rhythmic_gymnastic">
-            <option value="Купальник">Купальник</option>
-            <option value="Комбинезон">Комбинезон</option>
-            <option value="Другое">Другое</option>
-        </select>
-        <select name="Спортивная_гимнастика" id="sport_gymnastic">
-            <option value="Купальник">Купальник</option>
-            <option value="Лосины">Лосины</option>
-            <option value="Другое">Другое</option>
-        </select>
-        <select name="Фигурное_катание" id="figure_skating">
-            <option value="Платье">Платье</option>
-            <option value="Комбинезон">Комбинезон</option>
-            <option value="Рубашка">Рубашка</option>
-            <option value="Брюки">Брюки</option>
-            <option value="Другое">Другое</option>
-        </select><br>
-        <!--/group list-->
-        Пол:
-        <label><input type="radio" name="floor" value="male" checked>Муж</label>
-        <label><input type="radio" name="floor" value="female">Жен</label>
-        <br>
-        Заполните Ваши мерки: <br>
-        <label class="have_tooltip">Рост: <input type="text" name="man_height" required></label><br>
-        <label class="have_tooltip">Обхват туловища: <input type="text" name="body_girth" required></label><br>
-        <label class="have_tooltip">Обхват груди: <input type="text" name="chest_girth" required></label><br>
-        <label class="have_tooltip">Обхват талии: <input type="text" name="waist_girth" required></label><br>
-        <label class="have_tooltip">Обхват бёдер: <input type="text" name="hip_girth" required></label><br>
-        <label class="have_tooltip">Обхват шеи: <input type="text" name="neck_girth" required></label><br>
-        <label class="have_tooltip">Ширина плеча: <input type="text" name="shoulder_width" required></label><br>
-        <label class="have_tooltip">Обхват плеча: <input type="text" name="shoulder_girth" required></label><br>
-        Добавьте фото: <input type="file" name="photo"><br>
-        <label>Добавьте описание заказа: <br>
-            <textarea name="" id="" cols="30" rows="10"></textarea></label><br>
-        <button>Добавить изделие на следубщего человека</button>
+    <div id="main_content">
+        <form action="#" method="get" name="input_data">
+            <div id="divh1">
+                <center>
+                    <h1>Заказ</h1>
+                </center>
+            </div>
+            Выберете вид спорта:
+            <select name="type_sport" id="type_sport" size="1" onclick="update_list()" align="center">
+                <option value="Художественная_гимнастика">Художественная гимнастика</option>
+                <option value="Спортивная_гимнастика">Спортивная гимнастика</option>
+                <option value="Фигурное_катание">Фигурное катание</option>
+            </select><br>
+            Вид заказа:
+            <label><input type="radio" name="type_order" value="Индивидуальный" checked>Индивидуальный</label>
+            <label><input type="radio" name="type_order" value="Групповой">Групповой</label><br>
+            Укажите количество человек в группе:
+            <input type="number" max="200" min="1" required><br>
+            <!--group list-->
+            Выберете изделие:
+            <select name="Художественная_гимнастика" id="rhythmic_gymnastic">
+                <option value="Купальник">Купальник</option>
+                <option value="Комбинезон">Комбинезон</option>
+                <option value="Другое">Другое</option>
+            </select>
+            <select name="Спортивная_гимнастика" id="sport_gymnastic">
+                <option value="Купальник">Купальник</option>
+                <option value="Лосины">Лосины</option>
+                <option value="Другое">Другое</option>
+            </select>
+            <select name="Фигурное_катание" id="figure_skating">
+                <option value="Платье">Платье</option>
+                <option value="Комбинезон">Комбинезон</option>
+                <option value="Рубашка">Рубашка</option>
+                <option value="Брюки">Брюки</option>
+                <option value="Другое">Другое</option>
+            </select><br>
+            <!--/group list-->
+            Пол:
+            <label><input type="radio" name="floor" value="male" checked>Муж</label>
+            <label><input type="radio" name="floor" value="female">Жен</label>
+            <br>
+            Заполните Ваши мерки: <br>
+            <label class="have_tooltip">Рост: <input type="text" name="man_height" required></label><br>
+            <label class="have_tooltip">Обхват туловища: <input type="text" name="body_girth" required></label><br>
+            <label class="have_tooltip">Обхват груди: <input type="text" name="chest_girth" required></label><br>
+            <label class="have_tooltip">Обхват талии: <input type="text" name="waist_girth" required></label><br>
+            <label class="have_tooltip">Обхват бёдер: <input type="text" name="hip_girth" required></label><br>
+            <label class="have_tooltip">Обхват шеи: <input type="text" name="neck_girth" required></label><br>
+            <label class="have_tooltip">Ширина плеча: <input type="text" name="shoulder_width" required></label><br>
+            <label class="have_tooltip">Обхват плеча: <input type="text" name="shoulder_girth" required align="center"></label><br>
+            Добавьте фото: <input type="file" name="photo"><br>
+            <label>Добавьте описание заказа: <br>
+                <textarea></textarea>
+            </label><br>
+            <button onclick="search_bad_form()"> Добавить изделие на следубщего человека</button>
+            <input type="submit" onclick="search_bad_form()">
+        </form>
+    </div>
 
-        <input type="submit">
-    </form>
 </body>
 
 </html>
